@@ -1,6 +1,6 @@
 import cv2 as cv
 import numpy as np
-from src.model.hsvfilter import HsvFilter
+from model.hsvfilter import HsvFilter
 
 class Vision:
     # constants
