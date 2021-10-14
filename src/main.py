@@ -12,7 +12,7 @@ from bot import Bot
 
 bot = Bot()
 
-screenGrab = ScreenGrab(2440//4, 1080, 1440//2, 0)
+screenGrab = ScreenGrab(400, 900, 750, 200)
 hookVision = Vision('./hook_processed.jpg')
 reelVision = Vision('./reel_processed.jpg')
 successVision = Vision('./success_processed.jpg')
@@ -36,8 +36,8 @@ while(True):
         processed_reel_img = reelVision.apply_hsv_filter(screenshot, HsvFilterConfig.getReelFilter())
         processed_success_img = successVision.apply_hsv_filter(screenshot, HsvFilterConfig.getSuccessFilter())
         
-        reel_points = reelVision.find(processed_reel_img, 0.4, 1, False)
-        success_points = successVision.find(processed_success_img, 0.7, 1, False)
+        reel_points = reelVision.find(processed_reel_img, 0.45, 5, False)
+        success_points = successVision.find(processed_success_img, 0.65, 1, False)
 
         screenshot = reelVision.draw_rectangles(screenshot, reel_points, True)
         screenshot = successVision.draw_rectangles(screenshot, success_points, True)
